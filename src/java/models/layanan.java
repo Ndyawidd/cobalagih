@@ -4,10 +4,15 @@
  */
 package models;
 
+<<<<<<< HEAD
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+=======
+import java.sql.ResultSet;
+import java.sql.SQLException;
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
 
 /**
  *
@@ -92,6 +97,7 @@ public class layanan extends Model implements Notification{
     public void setDurasi(int durasi) {
         this.durasi = durasi;
     }
+<<<<<<< HEAD
    
     public String getNameByID(int id) {
         String name = null;
@@ -111,6 +117,8 @@ public class layanan extends Model implements Notification{
         }
         return name;
     }
+=======
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
 
     @Override
     public void getNotification() {

@@ -38,6 +38,30 @@
 <body>
     <div class="container-fluid">
         <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <h2 class="text-center text-white py-3">Dashboard</h2>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.getContextPath() %>/customerr/layanan">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.getContextPath() %>/customerr/payment">Payment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="<%= request.getContextPath() %>/customerr/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%= request.getContextPath() %>/customerr/riwayatPesanan">Riwayat Pesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="POST" action="<%= request.getContextPath() %>/auth" style="display: inline;">
+                            <input type="hidden" name="action" value="logout">
+                            <button type="submit" class="btn btn-danger w-100 mt-2">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+                            
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
                 <div class="container my-5">
                     <h2 class="text-primary">Daftar Pesanan</h2>

@@ -97,7 +97,11 @@
                 <% } %>
                 <% if (request.getParameter("error") != null) { %>
                 <div class="alert alert-danger mt-3 text-center">
+<<<<<<< HEAD
                     Mohon maaf, action yang dilakukan ERROR
+=======
+                    Mohon maaf, action yang anda gunakan ERROR
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
                 </div>
                 <% } %>
                     <!-- Profile Header -->
@@ -144,6 +148,16 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
+=======
+                    <!-- Additional Info -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Riwayat Pemesanan</h5>
+                            <p>Belum ada riwayat pemesanan.</p>
+                        </div>
+                    </div>
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
                 </div>
                          
                 <!-- Modal -->

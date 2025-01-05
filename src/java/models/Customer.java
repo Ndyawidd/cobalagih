@@ -208,6 +208,7 @@ public class Customer extends User {
         }
         return true;
     }
+<<<<<<< HEAD
     
     public boolean minSaldo(String username, double amount) {
         if (amount > 0) {
@@ -216,6 +217,8 @@ public class Customer extends User {
         }
         return true;
     }
+=======
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
 
     public Customer updateSaldo(String username, double saldo) {
 

@@ -43,7 +43,11 @@ public class CustomerDashboardController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/payment?menu=view");
                 break;
             case "/riwayatPesanan":
+<<<<<<< HEAD
                response.sendRedirect(request.getContextPath() + "/order?menu=view");
+=======
+                request.getRequestDispatcher("/Customer/riwayatPesanan.jsp").forward(request, response);
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
                 break;
             case "/profile":
                 request.getRequestDispatcher("/Customer/profile.jsp").forward(request, response);

@@ -19,7 +19,11 @@ public class AuthController extends HttpServlet {
     private void connect() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
+<<<<<<< HEAD
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/easy_kos", "root", "");
+=======
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbo", "root", "");
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
             stmt = con.createStatement();
         } catch (ClassNotFoundException e) {
             throw new SQLException("Database driver not found");

@@ -33,6 +33,108 @@
         .content {
             padding: 20px;
         }
+        
+        h2.text-primary {
+    color: #4a90e2;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Gaya untuk kartu layanan */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff, #f3f4f6);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Gaya untuk konten dalam kartu */
+.card-body {
+    padding: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Judul kartu */
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Deskripsi kartu */
+.card-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+/* Harga dan durasi */
+.card-text strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 15px;
+    color: #4a90e2;
+}
+
+/* Tombol "Pesan Sekarang" */
+.btn-primary {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #357ab8;
+    border-color: #357ab8;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+/* Pesan tidak ada layanan */
+.text-center {
+    font-size: 16px;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-text {
+        font-size: 13px;
+    }
+}
     </style>
 </head>
 <body>

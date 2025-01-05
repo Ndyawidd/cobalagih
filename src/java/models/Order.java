@@ -12,6 +12,10 @@ public class Order extends Model{
     private String phoneNumber;
     private String location;
     private String notes;
+<<<<<<< HEAD
+=======
+//    private enum status{"pending", "confirmed", "cancel"};
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
     private String status;
     private double saldoEWallet;
     private String paymentMethod;
@@ -98,6 +102,11 @@ public class Order extends Model{
         return null; // Kembalikan null jika tidak ditemukan
 
     }
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
 
     // Getter dan Setter
     public int getOrderId() {
@@ -204,5 +213,8 @@ public class Order extends Model{
         this.scheduleDate = scheduleDate;
     }
 
+<<<<<<< HEAD
     // Tambahkan method lain sesuai kebutuhan (createOrder, confirmOrder, dll)
+=======
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
 }

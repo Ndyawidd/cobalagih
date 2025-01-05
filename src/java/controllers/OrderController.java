@@ -24,8 +24,12 @@ public class OrderController extends HttpServlet {
         } else {
             request.setAttribute("orders", orders);
         }
+<<<<<<< HEAD
 
         request.getRequestDispatcher("/Customer/riwayatPesanan.jsp").forward(request, response);
+=======
+        request.getRequestDispatcher("/Customer/order_view.jsp").forward(request, response);
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
     }
     
     private void handleCreate(HttpServletRequest request, HttpServletResponse response)
@@ -65,6 +69,44 @@ public class OrderController extends HttpServlet {
             request.getRequestDispatcher("/Customer/order_summary.jsp").forward(request, response);
         }
     }
+<<<<<<< HEAD
+=======
+    
+    private void handlePay(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String orderId = request.getParameter("orderId");
+            if (orderId == null || orderId.isEmpty()) {
+                response.sendRedirect(request.getContextPath() + "/order?menu=view");
+                return;
+            }
+
+            Order orderModel = new Order();
+            Order order = (Order) orderModel.find(orderId);
+            
+            if (order == null) {
+                // Jika pesanan tidak ditemukan
+                response.sendRedirect(request.getContextPath() + "/error.jsp?message=Order not found");
+            }
+    }
+    
+    private void handleCancel(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String orderId = request.getParameter("orderId");
+            if (orderId == null || orderId.isEmpty()) {
+                response.sendRedirect(request.getContextPath() + "/order?menu=view");
+                return;
+            }
+
+            Order orderModel = new Order();
+            Order order = (Order) orderModel.find(orderId);
+            
+            if (order == null) {
+                // Jika pesanan tidak ditemukan
+                response.sendRedirect(request.getContextPath() + "/error.jsp?message=Order not found");
+            }
+    }
+
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -96,6 +138,17 @@ public class OrderController extends HttpServlet {
                     handleSummary(request, response);
                     break;
                     
+<<<<<<< HEAD
+=======
+                case "pay":
+                    handlePay(request, response);
+                    break; 
+                    
+                case "cancel":
+                    handleCancel(request, response);
+                    break; 
+                    
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
                 default:
                     response.sendRedirect(request.getContextPath() + "/order?menu=view");
                     break;
@@ -120,8 +173,11 @@ public class OrderController extends HttpServlet {
         Order orderModel = new Order();
         
         if ("create".equals(action)) {
+<<<<<<< HEAD
             // Logika untuk membuat pesanan
             // (sama seperti sebelumnya)
+=======
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
             try {
             int serviceId = Integer.parseInt(request.getParameter("serviceId"));
             Integer customerId = (Integer) session.getAttribute("customerId");
@@ -129,19 +185,28 @@ public class OrderController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
                 return;
             }
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
             String fullName = request.getParameter("fullName");
             String phoneNumber = request.getParameter("phoneNumber");
             String location = request.getParameter("location");
             String notes = request.getParameter("notes");
             String paymentMethod = request.getParameter("paymentMethod");
+<<<<<<< HEAD
             
             // Validasi dan parsing saldoEWallet
+=======
+
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
             String saldoEWalletStr = request.getParameter("saldoEWallet");
             double saldoEWallet = (saldoEWalletStr != null && !saldoEWalletStr.trim().isEmpty()) 
                 ? Double.parseDouble(saldoEWalletStr) 
                 : 0.0; // Atau bisa throw exception jika tidak valid
             
+<<<<<<< HEAD
             String duration = request.getParameter("duration");
             
             // Validasi dan parsing servicePrice
@@ -149,6 +214,11 @@ public class OrderController extends HttpServlet {
             double servicePrice = (servicePriceStr != null && !servicePriceStr.trim().isEmpty()) 
                 ? Double.parseDouble(servicePriceStr) 
                 : 0.0; // Atau bisa throw exception jika tidak valid
+=======
+            String duration = request.getParameter("serviceDuration");
+            
+            double servicePrice = Double.parseDouble(request.getParameter("servicePrice"));
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
             
             java.sql.Date scheduleDate = java.sql.Date.valueOf(request.getParameter("scheduleDate"));
 
@@ -165,18 +235,31 @@ public class OrderController extends HttpServlet {
             orderModel.setServicePrice(servicePrice);
             orderModel.setScheduleDate(scheduleDate);
             orderModel.insert();
+<<<<<<< HEAD
             response.sendRedirect("order?menu=view&id=" + orderModel.getOrderId() + "&success=true");
+=======
+
+            response.sendRedirect("order?menu=summary&id=" + orderModel.getOrderId());
+            
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
         } catch (NumberFormatException e) {
             e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error.jsp?message=Invalid input");
         } catch (Exception e) {
             e.printStackTrace();
+<<<<<<< HEAD
             response.sendRedirect(request.getContextPath() + "/test.jsp");
         }
         } else if ("summary".equals(action)) {
             // Logika untuk menampilkan ringkasan pesanan
             // (sama seperti sebelumnya)
                     String orderId = request.getParameter("id");
+=======
+            response.sendRedirect(request.getContextPath() + "/error.jsp?message=Unexpected error occurred");
+        }
+        } else if ("summary".equals(action)) {
+               String orderId = request.getParameter("id");
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
                Order order = (Order) orderModel.find(orderId);
                if (order != null) {
                    request.setAttribute("order", order);
@@ -185,6 +268,7 @@ public class OrderController extends HttpServlet {
                    response.sendRedirect("order?menu=view");
                }
 
+<<<<<<< HEAD
         } else if ("pay".equals(action)) {
             try {
                 int orderId = Integer.parseInt(request.getParameter("orderId"));
@@ -208,5 +292,73 @@ public class OrderController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/payment.jsp");
             }
         }
+=======
+        }  else if ("pay".equals(action)) {
+                try {
+            
+            String orderId = request.getParameter("orderId");
+            if (orderId == null || orderId.isEmpty()) {
+                response.sendRedirect(request.getContextPath() + "/order?menu=view");
+                return;
+            }
+
+            Order order = (Order) orderModel.find(orderId);
+            
+            if (order == null) {
+                response.sendRedirect(request.getContextPath() + "/error.jsp?message=Order not found");
+                return;
+            }
+
+            if (!"pending".equals(order.getStatus())) {
+                response.sendRedirect(request.getContextPath() + "order?menu=view");
+                return;
+            }
+
+            order.setStatus("confirmed");
+            order.update(); 
+            response.sendRedirect("order?menu=view");
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/error.jsp?message=Invalid Order ID format");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/error.jsp?message=Unexpected error occurred");
+        }
+                
+        } else if ("cancel".equals(action)) {
+                try {
+            
+            String orderId = request.getParameter("orderId");
+            if (orderId == null || orderId.isEmpty()) {
+                response.sendRedirect(request.getContextPath() + "/order?menu=view");
+                return;
+            }
+
+            Order order = (Order) orderModel.find(orderId);
+            
+            if (order == null) {
+                response.sendRedirect(request.getContextPath() + "/error.jsp?message=Order not found");
+                return;
+            }
+
+            if (!"pending".equals(order.getStatus())) {
+                response.sendRedirect(request.getContextPath() + "/order?menu=view");
+                return;
+            }
+
+            order.setStatus("cancel");
+            order.update(); // Pastikan metode update menerima objek Order
+
+            response.sendRedirect("order?menu=view");
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/error.jsp?message=Invalid Order ID format");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/error.jsp?message=Unexpected error occurred");
+        }
+        }
+
+>>>>>>> 57a6d7ff32cb187258f843876e8311d73a8a2f53
     }
 }
